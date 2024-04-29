@@ -1,12 +1,12 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from ctransformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 # import serve
 
 # Load Llama model
 from ctransformers import AutoModelForCausalLM
-model = AutoModelForCausalLM.from_pretrained("TheBloke/CodeLlama-7B-Python-GGUF", model_file="codellama-7b-python.Q3_K_L.gguf", model_type="llama", gpu_layers=0)
+model = AutoModelForCausalLM.from_pretrained("TheBloke/CodeLlama-7B-Python-GGUF", model_file="codellama-7b-python.Q3_K_L.gguf", model_type="llama", gpu_layers=0, hf=True)
 # model = AutoModelForCausalLM.from_pretrained("TheBloke/CodeLlama-7B-Python-GGUF")
-tokenizer = AutoTokenizer.from_pretrained("TheBloke/CodeLlama-7B-Python-GGUF")
+tokenizer = AutoTokenizer.from_pretrained(model)
 
 class ModelLlamaBase:
     # def __init__(self, model):
